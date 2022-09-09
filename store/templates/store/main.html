@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma|Rubik">
+   <link href='https://fonts.googleapis.com/css?family=Luckiest Guy' rel='stylesheet'>
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+   <title>Dolly & Sabby's Poultry Farm</title>
+
+
+   <style>
+
+   .serv-column{
+     float: left;
+     width: 33.33%;
+     text-align: center;
+     height: 100%;
+   }
+
+   .parallax {
+     background-image: url("/static/images/chicken3.jpg");
+     min-height: 560px;
+
+     background-attachment: fixed;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     filter: brightness(60%);
+
+   }
+
+   .styleText{
+     font-family: 'Luckiest Guy';
+     font-size:  25px;
+     text-align: center;
+     text-shadow: 4px 5px 5px rgba(255, 255, 255, 2.0);
+
+   }
+
+   .serv-row:after{
+     content: "";
+     display: table;
+     clear: both;
+   }
+
+   @media screen and (max-width: 1000px){
+     .serv-column{
+       width: 100%;
+     }
+   }
+
+   @media screen and (max-width: 1000px){
+     .column{
+       width: 100%;
+     }
+   }
+
+   .sectionSix{
+     background-color: #db2e27;
+   }
+
+path {
+  fill: transparent;
+}
+
+text {
+  fill: #FF2E2E;
+}
+
+
+
+
+
+
+
+   </style>
+</head>
+<body>
+
+ <div class="w3-top">
+
+   <nav class="navbar navbar-light bg-light">
+     <a class="navbar-brand" href="">
+       <img src="{% static 'images/DollynSabby_Poultry_Farm.png' %}" width="200" height="90" class="d-inline-block align-center" alt="">
+    </a>
+  </nav>
+
+   <div class="w3-bar w3-black w3-card">
+     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+     <a href="" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+     <a href="/aboutus" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT</a>
+     <a href="/shop" class="w3-bar-item w3-button w3-padding-large w3-hide-small">POULTRY</a>
+     <a href="#pagefoot" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+     <div class="w3-dropdown-hover w3-hide-small">
+       <button class="w3-padding-large w3-button" title="More">SERVICES<i class="fa fa-caret-down"></i></button>
+       <div class="w3-dropdown-content w3-bar-block w3-card-4">
+         <a href="#" class="w3-bar-item w3-button">Training</a>
+         <a href="#" class="w3-bar-item w3-button">Extra</a>
+       </div>
+     </div>
+
+     <div class="w3-dropdown-hover w3-hide-small w3-right">
+       <button id="accBtn" class="btn btn-info w3-padding-large w3-button">
+         {% if user.is_authenticated %}
+           <span
+             <i class="fa fa-user  "></i>{{request.user}}
+           </span>
+         {% else %}
+           <span
+             <i class="fa fa-user  ">&nbsp &nbsp &nbsp</i>
+           </span>
+         {% endif %}
+       </button>
+       <div class="w3-dropdown-content w3-bar-block w3-card-4">
+         <a href="/logout" class="w3-bar-item w3-button">Logout</a>
+           <a href="/login" class="w3-bar-item w3-button">Login</a>
+       </div>
+     </div>
+
+     <a href="/cart" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-shopping-cart"></i></a>
+   </div>
+ </div>
+
+ <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+ <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+   <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">HOME</a>
+   <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ABOUT</a>
+   <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">POULTRY</a>
+   <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">SERVICES</a>
+ </div>
+
+ <div class="w3-content" style="max-width:100%;margin-top:46px;">
+
+   <!-- Automatic Slideshow Images -->
+   <div class="mySlides w3-display-container w3-center">
+     <img src="{% static 'images/chicken4.jpg' %}" style="width:100%; filter:brightness(60%);">
+     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+       <h3 style="font-size: 5.2vw">DOLLY & SABBY POULTRY FARM</h3>
+       <p style="font-size:2vw;"><b>Healthy Chickens For Healthy Customers</b></p>
+       <a href="/shop"><button id="btnHome" href="/shop" class="btn"><b>POULTRY PRODUCTS</b></button></a>
+     </div>
+   </div>
+   <div class="mySlides w3-display-container w3-center">
+     <img src="{% static 'images/poultryEquip.jpg' %}" style="width:100%; filter:brightness(60%);">
+     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+       <h3 style="font-size: 5.2vw">DOLLY & SABBY POULTRY FARM</h3>
+       <p style="font-size:2vw;"><b>Reliable Poultry Equipment</b></p>
+       <a href="/shop"><button id="btnHome" href="/shop" class="btn"><b>POULTRY PRODUCTS</b></button></a>
+     </div>
+   </div>
+   <div class="mySlides w3-display-container w3-center">
+     <img src="{% static 'images/freshChicken.jpg' %}" style="width:100%; filter: brightness(60%)">
+     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+       <h3 style="font-size: 5.2vw">DOLLY & SABBY POULTRY FARM</h3>
+       <p style="font-size:2vw;"><b>Fresh Chickens, Make A Fresh Living</b></p>
+       <a href="/shop"><button id="btnHome" href="/shop" class="btn"><b>POULTRY PRODUCTS</b></button></a>
+     </div>
+   </div>
+</div>
+
+<div class="sectionTwo">
+   <div class="rows">
+      <div class="column">
+        <div class="leftstatement" style="margin-left: 10%; margin-top: 20% ">
+          <h2 style="font-size:200%;"><strong>HIGH QUALITY FOOD, PRODUCED TO THE HIGHEST GRADE</strong></h2>
+          <p style="font-size:150%;">Our aim is to produce grade AA eggs and bring ethical food to the table. We keep our chickens in an
+          environment that enables them to grow freely without subjecting them to inhuman situations.
+          <br>
+          <strong>Dolly & Sabby's Poultry Farm. We are Where Honest Food is Raised.</strong>
+          </p>
+
+          <a href="/shop"> <button  class="btn btn-danger btn-lg "type="btn-eggs" name="button"><b>FIND OUR PRODUCTS</b></button></a>
+        </div>
+      </div>
+      <div class="column">
+        <img id="eggs" src="{% static 'images/eggs.png' %}" alt="Logo">
+      </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="sectionThree">
+
+  <div class="parallax">
+
+  <div class="styleText" style="max-height:80px;">
+
+    <svg viewBox="0 0 500 500">
+      <path id="curve" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />
+      <text width="500">
+        <textPath xlink:href="#curve">
+          CHICKENS YOU CAN PUT YOUR BET ON
+        </textPath>
+      </text>
+    </svg>
+
+    </div>
+
+  </div>
+
+
+</div>
+<div class="sectionSix" style="height: 300px;">
+
+  <div class="rows">
+    <div class="column">
+  <div class="vl" style="margin-top: 30px; margin-left: 5%; border-left:15px solid #ffbf00; height: 100%;
+    left: 58%;">
+
+    <div class="letter" style="margin-left:3%; height: 100%">
+
+      <h2 style="color:white;"><strong><font size="+20">OUR CHICKENS </font></strong></h2>
+      <br>
+        <h2 style="color:white;"><strong><font size="+20">ARE OUR </font></strong></h2>
+        <br>
+        <h2 style="color:white;"><strong><font size="+20">BIGGEST PRIORITY</font></strong></h2>
+      <br>
+
+      <a href="/shop">
+      <button class="btn btn-warning btn-lg "type="button" name="">
+        <strong>FIND OUR CHICKENS</strong>
+      </button></a>
+    </div>
+
+
+  </div>
+</div>
+<div class="column">
+  <img style="width: 50%;height: 50%; margin-right: 50px; margin-top:0px;" src="{% static 'images/Chicken_Egg.png' %}" alt="">
+</div>
+</div>
+
+</div>
+<div class="sectionFour">
+  <img src="{% static 'images/vitalChicken.png' %}" alt="" style="width: 100%;">
+</div>
+
+<div class="sectionFive" style="height:100%; margin-top: 30px;">
+    <h1 style="font-size: 50px; text-align: center; margin-bottom: 0px; color: #696969">
+      <strong>SERVICES</strong>
+      <br>
+      <hr
+          class="mb-4 mt-0 d-inline-block mx-auto"
+          style="width: 100px; background-color: red; height: 2px"
+          />
+    </h1>
+    <div class="serv-row" style="margin:50px;">
+      <div class="serv-column">
+        <img src="{% static 'images/sticker1.png' %}" alt="">
+        <br>
+        <p style="font-size:150%; color: #696969;"><strong>
+          Our poultry place farm specializes in orgin/free range chicken meat production
+          for customers that simply want quality chicken meat for their business consumption.
+          We also stock a selected brand of free range Broiler feeds that optimizes
+          growth and quality in meat for small farmers.
+        </strong></p>
+      </div>
+      <br>
+      <div class="serv-column">
+        <img src="{% static 'images/sticker5.png' %}" alt="">
+        <br>
+        <p style="font-size:150%; color: #696969;"><strong>
+          Our poultry farm store stocks essential broiler/poultry farming equipments.
+          We mostly also provide locally fabricated cages of high standard and quality
+          with 7-10 durability. We have the regular cage which have 96 birds capacity
+          and 128 birds capacity.
+        </strong></p>
+      </div>
+      <div class="serv-column" style="margin-top:0;">
+        <img src="{% static 'images/sticker2.png' %}" alt="" style="width:28%; height:28%;">
+
+        <p style="font-size:150%; color: #696969;"><strong>
+          Our farmers put animal welfare at the heart of their operations. We
+          compensate them fairly and provide ongoing support.
+        </strong></p>
+      </div>
+
+    </div>
+</div>
+<br>
+  <!-- Footer -->
+  <footer class="text-center text-lg-start text-white" style="background-color: #1c2331"
+  id="pagefoot">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-between p-3" style="background-color: #897e62">
+      <!-- Left -->
+
+      <div class="mx-auto">
+        <a href="https://www.facebook.com/sandile.s.ngema.16" class="fa fa-facebook me-3" style="color:white; text-decoration:none; font-size: 150%"></a>
+        <a href="https://twitter.com/sandilengema12?t=vnDe9TIAFkMCCsRTPa7xkg&s=09" class="fa fa-twitter me-3" style="color:white; text-decoration:none; font-size: 150%"></a>
+        <a href="https://www.instagram.com/sandile_ngema_/" class="fa fa-instagram me-3" style="color:white; text-decoration:none; font-size: 150%"></a>
+        <a href="https://www.linkedin.com/in/sandilesn12" class="fa fa-linkedin me-3" style="color:white; text-decoration:none; font-size: 150%"></a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold">Dolly & Sabby Poultry Farm</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              We are available in three locations around Gauteng, but mainly based in Pretoria.
+              Do pop up to check us out and get yourself our nice chickens and products
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Products</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              <a href="/shop" class="text-white">Our Eggs</a>
+            </p>
+            <p>
+              <a href="/shop" class="text-white">Our Chickens</a>
+            </p>
+            <p>
+              <a href="/shop" class="text-white">Our Recipes</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-4 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Contact Us</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p><i class="fa fa-home"></i> KZN, R102 Mangethe Reserve KwaNqofela</p>
+            <p><i class="fa fa-map-marker"></i> South Africa, 466 Gerrit Maritz Rd, Pretoria North, Pretoria 0182</p>
+            <p><i class="fa fa-envelope"></i> sandilengema.sphelele@gmail.com</p>
+            <p><i class="fa fa-phone"></i> +27 67 774 6212 / +27 64 902 6848</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div
+         class="text-center p-3"
+         style="background-color: rgba(0, 0, 0, 0.2)"
+         >
+      © 2022 Copyright: Dolly & Sabby's Poultry Farm
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+  <script>
+// Automatic Slideshow - change image every 4 seconds
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 4000);
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// When the user clicks anywhere outside of the modal, close it
+var modal = document.getElementById('ticketModal');
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+ </body>
+
+
+</html>

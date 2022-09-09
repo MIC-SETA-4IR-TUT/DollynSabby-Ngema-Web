@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma|Rubik">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+   <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
+   <!--<link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+   <link href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>-->
+
+    <!--<link rel="preconnect" href="https://fonts.googleapis.com">-->
+    <!--<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <title>Dolly & Sabby's Poultry Farm</title>
+
+   <style>
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   }
+   body, h1, h2, h3, h4, h5, h6 {
+    /*font-family: 'Kanit', sans-serif;*/
+    font-family: "Karma", sans-serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
+   }
+
+   .sectionOne
+   {
+     background-image: url("static/images/back1.jpg");
+     background-repeat: no-repeat;
+     background-size: cover;
+     height: 50%;
+   }
+   .sectionOne{
+     background-image: linear-gradient(rgba(0, 0, 0, 0.527),
+                       rgba(0, 0, 0, 0.5)) ,
+                       url(static/images/back1.jpg);
+   }
+
+   .w3-bar .w3-bar-item{
+     text-decoration: none;
+     height: 50px;
+     margin-top: 1px;
+   }
+
+   #edge{
+     margin-top: 40%;
+   }
+   .sectionTwo
+   {
+
+     background-repeat: no-repeat;
+     background-size: cover;
+     height: 100%;
+     background-color: #f3efe4;
+     margin-top: 200px;
+   }
+   .sectionThree
+   {
+     background-image: url("static/images/transparent.png");
+     background-repeat: no-repeat;
+     background-size: cover;
+     height: 100%;
+     background-color: #141619ab;
+   }
+   /* Split into 2 columns */
+   .column {
+     float: left;
+     width: 50%;
+   }
+   .rows:after {
+     content: "";
+     display: table;
+     clear: both;
+   }
+   #workerOne{
+     height: 100%;
+     margin-left: 20%;
+     width: 70%;
+   }
+   #workerTwo{
+     height: 100%;
+     margin-left: 5%;
+     margin-top: 10%;
+     width: 70%;
+   }
+   #eggs{
+     margin: 10%;
+     width: 80%;
+   }
+   }
+   a {
+    text-decoration: none;
+   }
+   li {
+    list-style: none;
+   }
+
+   #logo1{
+     border-radius: 50%;
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 25%;
+     margin-top: 10%;
+   }
+
+  .navbar-nav {
+       --bs-nav-link-padding-x: 0;
+       --bs-nav-link-padding-y: 0.5rem;
+       --bs-nav-link-color: #f8f9fa !important;
+       --bs-nav-link-hover-color: #084298;
+       --bs-nav-link-disabled-color: #dc3545;
+       display: flex;
+       flex-direction: column;
+       padding-left: 0;
+       margin-bottom: 0;
+       list-style: none;
+       font-size: 1.7vw;
+   .navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
+       color: white !important;
+   }
+
+   .text {
+     color: #f2f2f2;
+     font-size: 3vw;
+     margin-top: 3.5%;
+     position: absolute;
+     width: 100%;
+     text-align: center;
+   }
+   .leftstatement{
+     margin-left: 10% !important;
+     margin-top: 20% !important;
+   }
+
+   .fa {
+     /*padding: 15px;*/
+     font-size: 30px;
+     /*width: 30px;*/
+     text-align: center;
+     text-decoration: none;
+     margin: 5px 2px;
+     border-radius: 50%;
+   }
+
+   .fa:hover {
+       opacity: 0.7;
+   }
+
+   .fa-facebook {
+     background: transparent/* #3B5998*/;
+     color: white;
+   }
+
+   .fa-twitter {
+     background: transparent /*#55ACEE*/;
+     color: white;
+   }
+
+   .fa-linkedin {
+     background: transparent /*#007bb5*/;
+     color: white;
+   }
+
+   .fa-instagram {
+     background: transparent/*#125688*/;
+     color: white;
+   }
+
+   </style>
+</head>
+<body>
+  <!-- <div class = "sectionOne">
+    <div>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="welcome2.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aboutus.html">About</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Products
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="eggs.html">Eggs</a></li>
+                <li><a class="dropdown-item" href="chickens.html">Chickens</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="recipes.html">Recipes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#pagefoot">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+ </div>
+   <img id="logo1" src="images/Logo2.png" alt="Logo">
+   <div class="texts" style="color: #f2f2f2; font-size: 7vw; margin-top: 20%;position: absolute;
+   width: 100%; text-align: center;">ABOUT US</div>
+   <p style ="text-align:center; color:#f2f2f2; font-size:1.5vw; margin-top:30%; position:absolute; width:100%"> Dolly & Sabby's poultry farm is a privately owned business which provides
+     various services poultry farming. We have been in existence for about 2 years.
+     We do help people in Rural areas having the dreams and resources in farming
+     to have the best stock they need in making their dreams come through.</p>
+   <img id="edge" src="images/edge.svg" alt="edge">
+ </div> -->
+ <div class="w3-top">
+
+   <nav class="navbar navbar-light bg-light">
+     <a class="navbar-brand" href="">
+       <img src="{% static 'images/newLogo1.jpg' %}" width="70" height="70" class="d-inline-block align-center" alt="">
+       <marquee behavior="scroll" direction="right" scrollamount="12">
+         <b style="font-size:2vw; text-align: center; color: #db2e27;">DOLLY & SABBY'S POULTRY FARM</b>
+         <p style="font-size:1vw; color: #db2e27;">WHERE HONEST FOOD IS RAISED</p>
+       </marquee>
+    </a>
+  </nav>
+
+   <div class="w3-bar w3-black w3-card">
+     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+     <a href="" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+     <a href="/about" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT</a>
+     <a href="/shop" class="w3-bar-item w3-button w3-padding-large w3-hide-small">POULTRY</a>
+     <a href="#pagefoot" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+     <div class="w3-dropdown-hover w3-hide-small">
+       <button class="w3-padding-large w3-button" title="More">SERVICES<i class="fa fa-caret-down"></i></button>
+       <div class="w3-dropdown-content w3-bar-block w3-card-4">
+         <a href="#" class="w3-bar-item w3-button">Training</a>
+         <a href="#" class="w3-bar-item w3-button">Extra</a>
+         <a href="#" class="w3-bar-item w3-button">Media</a>
+       </div>
+     </div>
+     <div class="w3-dropdown-hover w3-hide-small w3-right">
+       <button id="accBtn" class="btn btn-info w3-padding-large w3-button">
+         {% if user.is_authenticated %}
+           <span
+             <i class="fa fa-user  "></i>{{request.user}}
+           </span>
+         {% else %}
+           <span
+             <i class="fa fa-user  ">&nbsp &nbsp &nbsp</i>
+           </span>
+         {% endif %}
+       </button>
+       <div class="w3-dropdown-content w3-bar-block w3-card-4">
+         <a href="/logout" class="w3-bar-item w3-button">Logout</a>
+           <a href="/login" class="w3-bar-item w3-button">Login</a>
+       </div>
+     </div>
+     <!-- <a href="/logout" class="w3-padding-large w3-hover-red w3-hide-small w3-right">
+       <i>Logout</i>
+     </a> -->
+     <a href="/cart" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-shopping-cart"></i></a>
+   </div>
+ </div>
+
+ <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+ <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+   <a href="#band" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BAND</a>
+   <a href="#tour" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">TOUR</a>
+   <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
+   <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MERCH</a>
+ </div>
+
+ <div class="sectionTwo">
+   <div class="rows">
+      <div class="column">
+        <div class="leftstatement" style="margin-left: 10%;  margin-top: 6%;">
+          <h2><strong>HOW WE BEGAN</strong></h2>
+          <p>Dolly & Sabby's Farm began with a husband and wife, R102 Ndondakusuka Rd,
+            a Mangethe pasture and a commitment to animal welfare. Sabby Ngema and Dolly Ngema aspired
+            to produce ethical food and a sustainable business. Instead, they
+            built a transformational one. Today Dolly & Sabby's Farm partners with over
+            275 small family farms across the South African country. Every hen
+            is humanely treated, every egg is pasture-raised and we continue to elevate our
+            (and the industry’s) standards, continuing Dolly and Sabby’s commitment to conscious capitalism.</p>
+        </div>
+      </div>
+      <div class="column">
+        <img id="eggs" src="{% static 'images/babychick1.png' %}" alt="Logo">
+      </div>
+  </div>
+
+</div>
+<div class="sectionThree">
+  <div class="titles" style="margin-left: 10%;  margin-right: 10%;">
+    <h2><strong style="color: #ffffff;">OUR FARMERS</strong></h2>
+    <p style="color: wheat;">When it comes to producing food ethically, Dolly & Sally's farmers are outstanding in
+      their fields and pastures. We’re proud to work with people as committed to animal
+       welfare and ethical eating as we are. We support them with fair pay, in
+      addition to resources and expert advice from our dedicated Farmer Support Team. </p>
+  </div>
+  <div class="rows">
+    <div class="column">
+      <img id="workerOne" src="{% static 'images/dadewethu1.png' %}" alt="Logo">
+    </div>
+     <div class="column">
+       <div class="leftstatement;">
+         <h4><strong style="color: #ffffff;">Dolly Ngema</strong></h4>
+         <p style="color: wheat;">Armed with a mechanical engineering degree, Dolly never
+           saw herself pursuing agriculture, a common trade in her hometown, but after
+           exploring the food industry and learning more about food systems, she and her
+           husband began to look into ways they could play a role in making farming better.
+           Seven years later, Dolly and her family now own a farm and have been farming
+           for a little over a two years. Her husband, a physical therapy assistant, their parents and
+           their two kids all play a role in taking care of the girls. From cleaning out the egg room,
+           to everyday upkeep.</p>
+     </div>
+     </div>
+  </div>
+  <div class="rows">
+
+     <div class="column">
+       <div class="leftstatement" style="margin-left: 20%; margin-top:10%;">
+         <h4><strong style="color: #ffffff;">Sabby Ngema</strong></h4>
+         <p style="color: wheat;">Sabby’s enthusiasm and dedication to his girls is a sight to see.
+           To Sabby, embracing the farming lifestyle and raising pasture-raised
+           hens is just an extension of his belief to treat animals right and eat natural. </p>
+     </div>
+     </div>
+     <div class="column">
+       <img id="workerTwo" src="{% static 'images/mfowethu1.png' %}" alt="Logo">
+     </div>
+  </div>
+</div>
+
+  <!-- Footer -->
+<footer class="text-center text-lg-start text-white" style="background-color: #1c2331"
+  id="pagefoot">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-between p-3" style="background-color: #897e62">
+      <!-- Left -->
+
+      <div class="mx-auto">
+        <a href="https://www.facebook.com/sandile.s.ngema.16" class="fa fa-facebook me-1" style="color:white; text-decoration:none;"></a>
+        <a href="https://twitter.com/sandilengema12?t=vnDe9TIAFkMCCsRTPa7xkg&s=09" class="fa fa-twitter me-1" style="color:white; text-decoration:none;"></a>
+        <a href="https://www.instagram.com/sandile_ngema_/" class="fa fa-instagram me-1" style="color:white; text-decoration:none;"></a>
+        <a href="https://www.linkedin.com/in/sandilesn12" class="fa fa-linkedin " style="color:white; text-decoration:none;"></a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold">Dolly & Sabby Poultry Farm</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              We are available in three locations around Gauteng, but mainly based in Pretoria.
+              Do pop up to check us out and get yourself our nice chickens and products
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Products</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              <a href="eggs.html" class="text-white">Our Eggs</a>
+            </p>
+            <p>
+              <a href="chickens.html" class="text-white">Our Chickens</a>
+            </p>
+            <p>
+              <a href="recipes.html" class="text-white">Our Recipes </a>
+            </p>
+          </div>
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-4 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Contact Us</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p><i class="fa fa-home"></i> KZN, R102 Mangethe Reserve KwaNqofela</p>
+            <p><i class="fa fa-map-marker"></i> South Africa, 466 Gerrit Maritz Rd, Pretoria North, Pretoria 0182</p>
+            <p><i class="fa fa-envelope"></i> sandilengema.sphelele@gmail.com</p>
+            <p><i class="fa fa-phone"></i> +27 67 774 6212 / +27 64 902 6848</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div
+         class="text-center p-3"
+         style="background-color: rgba(0, 0, 0, 0.2)"
+         >
+      © 2022 Copyright: Dolly & Sabby's Poultry Farm
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+ </body>
+
+
+</html>

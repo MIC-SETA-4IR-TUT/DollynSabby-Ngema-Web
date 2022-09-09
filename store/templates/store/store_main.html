@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/store.css' %}" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
+    <!--<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
+
+    <style>
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      /*font-family: Arial;*/
+      font-size: 17px;
+    }
+
+    #myVideo {
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      filter: brightness(50%);
+    }
+
+    .container-1{
+      position: relative;
+    }
+
+    .content {
+      position: absolute;
+      /*bottom: 0;*/
+      top:50%;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5);
+      color: #f1f1f1;
+      width: 100%;
+      padding: 20px;
+    }
+
+    #myBtn {
+      width: 200px;
+      font-size: 18px;
+      padding: 10px;
+      border: none;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    #myBtn:hover {
+      background: #ddd;
+      color: black;
+    }
+
+
+    .box-element{
+      box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+      background-color: #fff;
+      border-radius: 4px;
+      padding: 10px;
+      width: 100% !important;
+    }
+
+
+    .thumbnail{
+      width: 100%;
+      height: 80%;
+      -webkit-box-shadow: -1px -3px -5px -2px rgba(214, 214, 214, 1);
+      -moz-box-shadow: -1px -3px 5px -2px rgba(214, 214, 214, 1);
+      box-shadow: -1px -3px 5px -2px rgba(214, 214, 214, 1);
+    }
+
+    .col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12{
+      margin-top: 10px;
+    }
+
+    .btn{
+      border-radius: 0;
+    }
+
+    .row-image{
+      width: 100px;
+    }
+
+    .form-field{
+      width: 250px;
+      display: inline-block;
+      padding: 5px;
+    }
+
+    .cart-row{
+      display: flex;
+      align-items: flex-stretch;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ececec;
+
+    }
+
+    .quantity{
+      display: inline-block;
+      font-weight: 700;
+      padding-right: 10px;
+    }
+
+    .chg-quantity{
+      width: 12px;
+      cursor: pointer;
+      display: block;
+      margin-top: 5px;
+      transition: .1s;
+    }
+
+    .chg-quantity:hover{
+      opacity: .6;
+    }
+
+    .hidden{
+      display: none !important;
+    }
+
+
+    </style>
+
+
+
+    <title>Dolly & Sabby's Poultry Farm</title>
+  </head>
+<body>
+
+  <div class="w3-top">
+
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img src="{% static 'images/newLogo1.jpg' %}" width="70" height="70" class="d-inline-block align-center" alt="">
+        <marquee behavior="scroll" direction="right" scrollamount="12">
+          <b style="font-size:2vw; text-align: center; color: #db2e27;">DOLLY & SABBY'S POULTRY FARM</b>
+          <p style="font-size:1vw; color: #db2e27;">WHERE HONEST FOOD IS RAISED</p>
+        </marquee>
+      </a>
+    </nav>
+
+    <div class="w3-bar w3-black w3-card">
+      <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+      <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hide-small">OUR HENS</a>
+      <div class="w3-dropdown-hover w3-hide-small">
+        <button class="w3-padding-large w3-button" title="More">PRODUCTS<i class="fa fa-caret-down"></i></button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a href="#" class="w3-bar-item w3-button">INCUBATORS</a>
+          <a href="#" class="w3-bar-item w3-button">HATCHERS</a>
+          <a href="#" class="w3-bar-item w3-button">POULTRY EQUIP</a>
+          <a href="#" class="w3-bar-item w3-button">POULTRY FEED</a>
+        </div>
+      </div>
+      <div class="w3-dropdown-hover w3-hide-small">
+        <button class="w3-padding-large w3-button" title="More">OUR FOOD<i class="fa fa-caret-down"></i></button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a href="#" class="w3-bar-item w3-button">FROZEN FOOD</a>
+          <a href="#" class="w3-bar-item w3-button">EGGS</a>
+        </div>
+      </div>
+
+
+      <div class="w3-dropdown-hover w3-hide-small w3-right">
+        <button id="accBtn" class="btn btn-info w3-padding-large w3-button">
+          {% if user.is_authenticated %}
+            <span
+              <i class="fa fa-user  "></i>{{request.user}}
+            </span>
+          {% else %}
+            <span
+              <i class="fa fa-user  ">&nbsp &nbsp &nbsp</i>
+            </span>
+          {% endif %}
+        </button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a href="/logout" class="w3-bar-item w3-button">Logout</a>
+            <a href="/login" class="w3-bar-item w3-button">Login</a>
+        </div>
+      </div>
+      <!-- <a href="/logout" class="w3-padding-large w3-hover-red w3-hide-small w3-right">
+        <i>Logout</i>
+      </a> -->
+      <a href="/cart" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-shopping-cart"></i></a>
+    </div>
+  </div>
+
+  <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+  <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+    <a href="" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">HOME</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">OUR HENS</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PRODUCTS</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">OUR FOOD</a>
+  </div>
+
+  <div class="container" style="margin-top: 200px;">
+    <br>
+    <div class="row">
+      {% for product in products %}
+      <div class="col-lg-4" style="margin-top: 80px;">
+        <img class="thumbnail" src="{{product.image.url}}">
+		    <div class="box-element product">
+          <h6><strong><!--Product-->{{product.name}}</strong></h6>
+		      <hr>
+
+          <button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
+		      <a class="btn btn-outline-success" href="#">View</a>
+		      <h4 style="display: inline-block; float: right"><strong><!--$20-->R{{product.price|floatformat:2}}</strong></h4>
+
+		    </div>
+	    </div>
+      {% endfor %}
+
+  </div>
+
+</div>
+<br>
+<!-- Footer -->
+<footer class="text-center text-lg-start text-white" style="background-color: #1c2331"
+id="pagefoot">
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-between p-3" style="background-color: #897e62">
+    <!-- Left -->
+
+    <div class="mx-auto">
+      <a href="https://www.facebook.com/sandile.s.ngema.16" class="fa fa-facebook me-3" style="color:white; text-decoration:none; font-size: 150%"></a>
+      <a href="https://twitter.com/sandilengema12?t=vnDe9TIAFkMCCsRTPa7xkg&s=09" class="fa fa-twitter me-3" style="color:white; text-decoration:none; font-size: 150%"></a>
+      <a href="https://www.instagram.com/sandile_ngema_/" class="fa fa-instagram me-3" style="color:white; text-decoration:none; font-size: 150%"></a>
+      <a href="https://www.linkedin.com/in/sandilesn12" class="fa fa-linkedin me-3" style="color:white; text-decoration:none; font-size: 150%"></a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold">Dolly & Sabby Poultry Farm</h6>
+          <hr
+              class="mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px; background-color: #7c4dff; height: 2px"
+              />
+          <p>
+            We are available in three locations around Gauteng, but mainly based in Pretoria.
+            Do pop up to check us out and get yourself our nice chickens and products
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold">Products</h6>
+          <hr
+              class="mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px; background-color: #7c4dff; height: 2px"
+              />
+          <p>
+            <a href="/shop" class="text-white">Our Eggs</a>
+          </p>
+          <p>
+            <a href="/shop" class="text-white">Our Chickens</a>
+          </p>
+          <p>
+            <a href="/shop" class="text-white">Our Recipes</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-4 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold">Contact Us</h6>
+          <hr
+              class="mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px; background-color: #7c4dff; height: 2px"
+              />
+          <p><i class="fa fa-home"></i> KZN, R102 Mangethe Reserve KwaNqofela</p>
+          <p><i class="fa fa-map-marker"></i> South Africa, 466 Gerrit Maritz Rd, Pretoria North, Pretoria 0182</p>
+          <p><i class="fa fa-envelope"></i> sandilengema.sphelele@gmail.com</p>
+          <p><i class="fa fa-phone"></i> +27 67 774 6212 / +27 64 902 6848</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div
+       class="text-center p-3"
+       style="background-color: rgba(0, 0, 0, 0.2)"
+       >
+    © 2022 Copyright: Dolly & Sabby's Poultry Farm
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+
+
+  <script>
+
+  function scaleToFill() {
+  $('video.video-background').each(function(index, videoTag) {
+     var $video = $(videoTag),
+         videoRatio = videoTag.videoWidth / videoTag.videoHeight,
+         tagRatio = $video.width() / $video.height(),
+         val;
+
+     if (videoRatio < tagRatio) {
+         val = tagRatio / videoRatio * 1.02; <!-- size increased by 2% because value is not fine enough and sometimes leaves a couple of white pixels at the edges -->
+     } else if (tagRatio < videoRatio) {
+         val = videoRatio / tagRatio * 1.02;
+     }
+
+     $video.css('transform','scale(' + val  + ',' + val + ')');
+
+  });
+}
+
+$(function () {
+  scaleToFill();
+
+  $('.video-background').on('loadeddata', scaleToFill);
+
+  $(window).resize(function() {
+      scaleToFill();
+  });
+});
+
+
+
+var video = document.getElementById("myVideo");
+var btn = document.getElementById("myBtn");
+
+function myFunction() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Pause";
+  } else {
+    video.pause();
+    btn.innerHTML = "Play";
+  }
+}
+  </script>
+  </body>
+</html>

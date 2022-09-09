@@ -1,0 +1,351 @@
+{% load static %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/store.css' %}" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <title>Dolly & Sabby's Poultry Farm</title>
+
+    <style>
+      .category1{
+        position: relative;
+        width: 100%;
+      }
+
+      .imgCategory{
+        opacity: 1;
+        display: block;
+        width: 100%;
+        height: auto;
+        transition: .5s ease;
+        backface-visibility: hidden;
+      }
+
+      .middle{
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      .category1:hover .imgCategory{
+        opacity: 0.3;
+      }
+
+      .category1:hover .middle{
+        opacity:1;
+      }
+
+      #accBtn:hover{
+        background: none;
+        color: transparent;
+      }
+
+      .midText{
+        background-color: #db2e27;
+        color:white;
+        font-size: 16px;
+        padding: 16px 32px;
+      }
+
+      .header{
+        /*padding: 20px;*/
+        background: #db2e27;
+        color: white;
+        font-size: 20px;
+        padding-top: 100px;
+        padding-bottom: 30;
+        margin-top: 10%;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <div class="w3-top">
+
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img src="{% static 'images/newLogo1.jpg' %}" width="70" height="70" class="d-inline-block align-center" alt="">
+          <marquee behavior="scroll" direction="right" scrollamount="12">
+            <b style="font-size:2vw; text-align: center; color: #db2e27;">DOLLY & SABBY'S POULTRY FARM</b>
+            <p style="font-size:1vw; color: #db2e27;">WHERE HONEST FOOD IS RAISED</p>
+          </marquee>
+        </a>
+      </nav>
+
+      <div class="w3-bar w3-black w3-card">
+        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+        <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">OUR HENS</a>
+        <div class="w3-dropdown-hover w3-hide-small">
+          <button class="w3-padding-large w3-button" title="More">PRODUCTS<i class="fa fa-caret-down"></i></button>
+          <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a href="#" class="w3-bar-item w3-button">INCUBATORS</a>
+            <a href="#" class="w3-bar-item w3-button">HATCHERS</a>
+            <a href="#" class="w3-bar-item w3-button">POULTRY EQUIP</a>
+            <a href="#" class="w3-bar-item w3-button">POULTRY FEED</a>
+          </div>
+        </div>
+        <div class="w3-dropdown-hover w3-hide-small">
+          <button class="w3-padding-large w3-button" title="More">OUR FOOD<i class="fa fa-caret-down"></i></button>
+          <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a href="#" class="w3-bar-item w3-button">FROZEN FOOD</a>
+            <a href="#" class="w3-bar-item w3-button">EGGS</a>
+          </div>
+        </div>
+
+        <div class="w3-dropdown-hover w3-hide-small w3-right">
+          <button id="accBtn" class="btn btn-info w3-padding-large w3-button">
+            {% if user.is_authenticated %}
+              <span
+                <i class="fa fa-user  "></i>{{request.user}}
+              </span>
+            {% else %}
+              <span
+                <i class="fa fa-user  ">&nbsp &nbsp &nbsp</i>
+              </span>
+            {% endif %}
+          </button>
+          <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a href="/logout" class="w3-bar-item w3-button">Logout</a>
+              <a href="/login" class="w3-bar-item w3-button">Login</a>
+          </div>
+        </div>
+
+        <a href="/cart" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-shopping-cart"></i></a>
+
+      </div>
+    </div>
+
+    <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+    <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+      <a href="" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">HOME</a>
+      <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">OUR HENS</a>
+      <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PRODUCTS</a>
+      <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">OUR FOOD</a>
+    </div>
+
+
+
+    <div class="header">
+      <h1 style="margin-left:8%">Categories</h1>
+    </div>
+    <div class="container" style="margin-bottom: 150px;">
+      <div class="row">
+        <div class="col-lg">
+
+          <div class="category1" style="margin-top:30px">
+            <a href="#">
+              <img src="{% static 'images/Hen3.jpg'%}" alt="eggs" class="imgCategory" style="object-fit: cover; box-shadow: 0 10px 10px rgba(0,0,0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);">
+            </a>
+            <div class="middle">
+
+              <div class="midText">
+                <strong>OUR HENS</strong>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg">
+
+          <div class="category1" style="margin-top:30px">
+            <a href="#">
+              <img src="{% static 'images/poultry_feed.jpg'%}" alt="eggs" class="imgCategory" style="box-shadow: 0 10px 10px rgba(0,0,0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);">
+            </a>
+            <div class="middle">
+
+              <div class="midText">
+                <strong>POULTRY FEED</strong>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-lg">
+
+          <div class="category1" style="margin-top:40px">
+            <a href="#">
+              <img src="{% static 'images/poultry_equip.jpg'%}" alt="eggs" class="imgCategory" style="box-shadow: 0 10px 10px rgba(0,0,0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);">
+            </a>
+            <div class="middle">
+
+              <div class="midText">
+                <strong>POULTRY EQUIPMENT</strong>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg">
+
+          <div class="category1" style="margin-top:40px">
+            <a href="#">
+              <img src="{% static 'images/chicken_meat.jpg'%}" alt="eggs" class="imgCategory" style="box-shadow: 0 10px 10px rgba(0,0,0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);">
+            </a>
+            <div class="middle">
+
+              <div class="midText">
+                <strong>OUR FOOD PRODUCTS</strong>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-lg">
+
+          <div class="category1" style="margin-top:40px">
+            <a href="#">
+              <img src="{% static 'images/incubator.jpg'%}" alt="eggs" class="imgCategory" style="box-shadow: 0 10px 10px rgba(0,0,0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);">
+            </a>
+            <div class="middle">
+
+              <div class="midText">
+                <strong>INCUBATORS</strong>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg">
+
+          <div class="category1" style="margin-top:40px">
+            <a href="#">
+              <img src="{% static 'images/hatcher.png'%}" alt="eggs" class="imgCategory" style="box-shadow: 0 10px 10px rgba(0,0,0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);">
+            </a>
+            <div class="middle">
+
+              <div class="midText">
+                <strong>HATCHERS</strong>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <footer class="text-center text-lg-start text-white" style="background-color: #1c2331"
+    id="pagefoot">
+      <!-- Section: Social media -->
+      <section class="d-flex justify-content-between p-3" style="background-color: #897e62">
+        <!-- Left -->
+
+        <div class="mx-auto">
+          <a href="https://www.facebook.com/sandile.s.ngema.16" class="fa fa-facebook me-3" style="color:white; text-decoration:none; font-size: 150%"></a>
+          <a href="https://twitter.com/sandilengema12?t=vnDe9TIAFkMCCsRTPa7xkg&s=09" class="fa fa-twitter me-3" style="color:white; text-decoration:none; font-size: 150%"></a>
+          <a href="https://www.instagram.com/sandile_ngema_/" class="fa fa-instagram me-3" style="color:white; text-decoration:none; font-size: 150%"></a>
+          <a href="https://www.linkedin.com/in/sandilesn12" class="fa fa-linkedin me-3" style="color:white; text-decoration:none; font-size: 150%"></a>
+        </div>
+        <!-- Right -->
+      </section>
+      <!-- Section: Social media -->
+
+      <!-- Section: Links  -->
+      <section class="">
+        <div class="container text-center text-md-start mt-5">
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <!-- Content -->
+              <h6 class="text-uppercase fw-bold">Dolly & Sabby Poultry Farm</h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto"
+                  style="width: 60px; background-color: #7c4dff; height: 2px"
+                  />
+              <p>
+                We are available in three locations around Gauteng, but mainly based in Pretoria.
+                Do pop up to check us out and get yourself our nice chickens and products
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold">Products</h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto"
+                  style="width: 60px; background-color: #7c4dff; height: 2px"
+                  />
+              <p>
+                <a href="eggs.html" class="text-white">Our Eggs</a>
+              </p>
+              <p>
+                <a href="chickens.html" class="text-white">Our Chickens</a>
+              </p>
+              <p>
+                <a href="recipes.html" class="text-white">Our Recipes</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-4 mx-auto mb-md-0 mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold">Contact Us</h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto"
+                  style="width: 60px; background-color: #7c4dff; height: 2px"
+                  />
+              <p><i class="fa fa-home"></i> KZN, R102 Mangethe Reserve KwaNqofela</p>
+              <p><i class="fa fa-map-marker"></i> South Africa, 466 Gerrit Maritz Rd, Pretoria North, Pretoria 0182</p>
+              <p><i class="fa fa-envelope"></i> sandilengema.sphelele@gmail.com</p>
+              <p><i class="fa fa-phone"></i> +27 67 774 6212 / +27 64 902 6848</p>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+      </section>
+      <!-- Section: Links  -->
+
+      <!-- Copyright -->
+      <div
+           class="text-center p-3"
+           style="background-color: rgba(0, 0, 0, 0.2)"
+           >
+        © 2022 Copyright: Dolly & Sabby's Poultry Farm
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+  </body>
+</html>
